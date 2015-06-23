@@ -127,7 +127,17 @@ for (state in sortedstatuses) {
                             }
                         }
                     %>
-                    <a href="/log/<%= host.idHost %>/<%= processFullname %>/out" class="btn btn-default"><i class="glyphicon glyphicon-tasks"></i></a>
+                    <%
+                       if (processes[i].group != processes[i].name){
+                         %>
+                         <a href="/log/<%= host.idHost %>/<%= processes[i].group %>:<%= processes[i].name %>/out" class="btn btn-default"><i class="glyphicon glyphicon-tasks"></i></a>
+                         <%
+                       } else {
+                         %>
+                         <a href="/log/<%= host.idHost %>/<%= processes[i].name %>/out" class="btn btn-default"><i class="glyphicon glyphicon-tasks"></i></a>
+                         <%
+                       }
+                    %>
                 </td>
             </tr>
         <% } %>
