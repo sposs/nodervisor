@@ -81,7 +81,17 @@ for (state in sortedstatuses) {
             %>
             <tr class="<%= rowClass %> process-row">
                 <td>
-                    <%= processes[i].name %>
+                    <%
+                      if (processes[i].group != processes[i].name){
+                        %>
+                        <%= processes[i].group %>:<%= processes[i].name %>
+                        <%
+                      }else{
+                        %>
+                        <%= processes[i].name %>
+                       <%
+                      }
+                    %>
                     <div class="spawn-error-div" style="display: none;">
                         <% if (processes[i].spawnerr != '') { %>
                             <hr>
