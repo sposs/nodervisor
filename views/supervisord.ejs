@@ -65,6 +65,10 @@
             $('#hosts-listing').on('click', '.super-action', function(){
                 var action = $(this).attr('data-action');
                 var process = $(this).attr('data-process');
+                var group = $(this).attr('data-group');
+                if (group != process && group != undefined){
+                   process = group+":"+process
+                }
                 var host = $(this).attr('data-host');
 
                 $.ajax({
